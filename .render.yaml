@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: shopify-order-server
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000 # or leave blank; Render will auto-assign
+      - key: ACCESS_TOKEN_SECRET
+        sync: false  # Set this securely in Render dashboard instead
+    autoDeploy: true
