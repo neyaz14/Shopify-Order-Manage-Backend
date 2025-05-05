@@ -3,20 +3,20 @@ const express = require('express');
 const axios = require('axios');
 const StoreModel = require('../Models/storeSchema');
 
-const verifyToken = require('../Middleware/jwtMiddleware');
+// const verifyToken = require('../Middleware/jwtMiddleware');
 
 
 const router = express.Router();
 
-router.get('/storeOrders/:storeId', verifyToken,async (req, res) => {
+router.get('/storeOrders/:storeId',async (req, res) => {
   const storeId = req.params.storeId;
   const cursor = req.query.cursor || null;
-  const requestedEmail = req.query.email;
+  // const requestedEmail = req.query.email;
   
-  // Verify that the authenticated user matches the requested email
-  if (requestedEmail && req.user.email !== requestedEmail) {
-    return res.status(403).json({ message: 'Forbidden access: Email mismatch' });
-  }
+  // // Verify that the authenticated user matches the requested email
+  // if (requestedEmail && req.user.email !== requestedEmail) {
+  //   return res.status(403).json({ message: 'Forbidden access: Email mismatch' });
+  // }
 
   try {
     const store = await StoreModel.findById(storeId);
