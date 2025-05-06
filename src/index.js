@@ -37,6 +37,9 @@ app.use(express.json());
 app.use(cors({
     origin: [
         'http://localhost:5173',
+        'https://shopify-order-live.web.app',
+        'https://shopify-order-live.firebaseapp.com',
+        'https://shopify-order-manage-frontend.onrender.com'
     ],
     credentials: true
 }));
